@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "npm-run-all -p node browsersync",
+    "start": "npm-run-all -p nodemon browsersync",
     "browsersync": "browser-sync start --proxy http://localhost:5000 --file 'public,views'",
-    "node": "node server.js"
+    "nodemon": "nodemon server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.12",
+    "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5"
   }
 }
