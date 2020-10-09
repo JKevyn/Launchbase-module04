@@ -16,8 +16,11 @@ exports.show = function(req, res){
         ...foundInstructor,
         age: age(foundInstructor.birth),
         services: foundInstructor.services.split(','),
-        created_at: new Intl.DateTimeFormat('pt-BR').format(foundInstructor.created_at)
+        created_at: new Intl.DateTimeFormat("en-US").format(foundInstructor.created_at),
     }
+
+    console.log(instructor.created_at)
+
     return res.render('instructors/show', { instructor })
 }
 
@@ -35,7 +38,8 @@ exports.post = function(req, res){
     let { avatar_url, birth, name, services, gender } = req.body
 
     birth = Date.parse(birth)
-    const created_at = Date.now()
+    
+    let created_at = Date.now()
     const id = Number(data.instructors.length + 1)
 
     data.instructors.push({ 
@@ -76,3 +80,4 @@ exports.edit = function(req, res) {
 
     return res.render('instructors/edit', {instructor: foundInstructor})
 }
+
